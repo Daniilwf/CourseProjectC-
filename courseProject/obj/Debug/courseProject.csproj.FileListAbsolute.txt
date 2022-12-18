@@ -1,0 +1,11 @@
+C:\Users\boris\RiderProjects\courseProject\courseProject\bin\Debug\courseProject.exe.config
+C:\Users\boris\RiderProjects\courseProject\courseProject\bin\Debug\courseProject.exe
+C:\Users\boris\RiderProjects\courseProject\courseProject\bin\Debug\courseProject.pdb
+C:\Users\boris\RiderProjects\courseProject\courseProject\obj\Debug\courseProject.csproj.AssemblyReference.cache
+C:\Users\boris\RiderProjects\courseProject\courseProject\obj\Debug\courseProject.csproj.SuggestedBindingRedirects.cache
+C:\Users\boris\RiderProjects\courseProject\courseProject\obj\Debug\courseProject.Properties.Resources.resources
+C:\Users\boris\RiderProjects\courseProject\courseProject\obj\Debug\courseProject.csproj.GenerateResource.cache
+C:\Users\boris\RiderProjects\courseProject\courseProject\obj\Debug\courseProject.csproj.CoreCompileInputs.cache
+C:\Users\boris\RiderProjects\courseProject\courseProject\obj\Debug\courseProject.exe
+C:\Users\boris\RiderProjects\courseProject\courseProject\obj\Debug\courseProject.pdb
+C:\Users\boris\RiderProjects\courseProject\courseProject\obj\Debug\courseProject.Form1.resources
