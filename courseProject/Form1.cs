@@ -13,16 +13,18 @@ namespace courseProject
 {
     public partial class Form1 : Form
     {
+        private static string _firstWord;
+        private static string _secondWord;
         public Form1()
         {
             InitializeComponent();
         }
         private static int Minimum(int a, int b, int c) => (a = a < b ? a : b) < c ? a : c;
         
-        private static int[,] LevenshteinDistance(string firstWord, string secondWord)
+        private static int[,] LevenshteinDistance()
         { 
-            var n = firstWord.Length + 1;
-            var m = secondWord.Length + 1;
+            var n = _firstWord.Length + 1;
+            var m = _secondWord.Length + 1;
             var matrixD = new int[n, m];
 
             const int deletionCost = 1;
@@ -42,7 +44,7 @@ namespace courseProject
             {
                 for (var j = 1; j < m; j++)
                 {
-                    var substitutionCost = firstWord[i - 1] == secondWord[j - 1] ? 0 : 1;
+                    var substitutionCost = _firstWord[i - 1] == _secondWord[j - 1] ? 0 : 1;
 
                     matrixD[i, j] = Minimum(matrixD[i - 1, j] + deletionCost,          // удаление
                         matrixD[i, j - 1] + insertionCost,         // вставка
@@ -54,31 +56,48 @@ namespace courseProject
             return matrixD;
         }
 
-        private static List<string> get_Path(int[,] matrixD, string firstWord, string secondWord)
+        private static List<string> GetPath(int[,] matrixD)
         {
-            var n = firstWord.Length + 1;
-            var m = secondWord.Length + 1;
+            var n = _firstWord.Length + 1;
+            var m = _secondWord.Length + 1;
             List<string> path = new List<string>();
             int index1 = n - 1, index2 = m - 1, current = matrixD[n - 1, m - 1];
-            while ((index1 != 0) && (index2 != 0))
+            while (current != 0)
             {
-                int temp = Minimum(matrixD[index1 - 1, index2],        
-                    matrixD[index1, index2 - 1],         
-                    matrixD[index1 - 1, index2 - 1] );
+                int temp = 0;
+                if ((index1 != 0) && (index2 != 0))
+                {
+                    temp = Minimum(matrixD[index1 - 1, index2],
+                        matrixD[index1, index2 - 1],
+                        matrixD[index1 - 1, index2 - 1]);
+                }
+                else
+                {
+                    if (index2 == 0)
+                    {
+                        path.Add("Удалить символ \"" + _firstWord[index1 - 1] + '\"');
+                    }
+                    if (index1 == 0)
+                    {
+                        path.Add("Вставить символ \"" + _secondWord[index2 - 1] + "\" на позицию " + index2);
+                    }
+
+                    break;
+                }
                 if (current == temp) 
                     current = matrixD[index1--, index2--];
                 else
                 {
                     if (temp == matrixD[index1 - 1, index2])
                     {
-                        path.Add("Удалить символ \"" + firstWord[index1 - 1] + '\"');
+                        path.Add("Удалить символ \"" + _firstWord[index1 - 1] + '\"');
                         current = temp;
                         index1--;
                         continue;
                     }
                     if (temp == matrixD[index1, index2 - 1])
                     {
-                        path.Add("Вставить символ \"" + secondWord[index2 - 1] + "\" на позицию " + index2);
+                        path.Add("Вставить символ \"" + _secondWord[index2 - 1] + "\" на позицию " + index2);
                         current = temp;
                         index2--;
                         continue;
@@ -86,7 +105,7 @@ namespace courseProject
 
                     if (temp == matrixD[index1 - 1, index2 - 1])
                     {
-                        path.Add("Заменить символ \"" + firstWord[index1 - 1] + "\" на символ \"" + secondWord[index2 - 1] + "\"");
+                        path.Add("Заменить символ \"" + _firstWord[index1 - 1] + "\" на символ \"" + _secondWord[index2 - 1] + "\"");
                         current = temp;
                         index1--; index2--;
                     }
@@ -96,13 +115,15 @@ namespace courseProject
             return path;
         }
         
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            var levenshteinDistance = LevenshteinDistance(firstLine.Text, secondLine.Text);
-            label3.Text = @"Расстояния Левенштейна: " + levenshteinDistance[firstLine.Text.Length, secondLine.Text.Length] + '\n';
-            var path = get_Path(levenshteinDistance, firstLine.Text, secondLine.Text);
+            _firstWord = firstLine.Text;
+            _secondWord = secondLine.Text;
+            var levenshteinDistance = LevenshteinDistance();
+            labelForDistance.Text = @"Расстояния Левенштейна: " + levenshteinDistance[firstLine.Text.Length, secondLine.Text.Length] + '\n';
+            var path = GetPath(levenshteinDistance);
             foreach (var pth in path)
-                label3.Text += pth + '\n';
+                labelForDistance.Text += pth + '\n';
             //levenshtein
             //meilenstein
         }

@@ -31,85 +31,108 @@
         {
             this.firstLine = new System.Windows.Forms.TextBox();
             this.secondLine = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelForFirstLine = new System.Windows.Forms.Label();
+            this.labelForSecondLine = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelForDistance = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // firstLine
             // 
-            this.firstLine.Location = new System.Drawing.Point(333, 41);
+            this.firstLine.Location = new System.Drawing.Point(444, 50);
+            this.firstLine.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.firstLine.Name = "firstLine";
-            this.firstLine.Size = new System.Drawing.Size(296, 20);
+            this.firstLine.Size = new System.Drawing.Size(393, 22);
             this.firstLine.TabIndex = 0;
             // 
             // secondLine
             // 
-            this.secondLine.Location = new System.Drawing.Point(333, 101);
+            this.secondLine.Location = new System.Drawing.Point(444, 124);
+            this.secondLine.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.secondLine.Name = "secondLine";
-            this.secondLine.Size = new System.Drawing.Size(296, 20);
+            this.secondLine.Size = new System.Drawing.Size(393, 22);
             this.secondLine.TabIndex = 2;
             // 
-            // label1
+            // labelForFirstLine
             // 
-            this.label1.Location = new System.Drawing.Point(230, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Первая строка";
+            this.labelForFirstLine.Location = new System.Drawing.Point(307, 50);
+            this.labelForFirstLine.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelForFirstLine.Name = "labelForFirstLine";
+            this.labelForFirstLine.Size = new System.Drawing.Size(129, 25);
+            this.labelForFirstLine.TabIndex = 3;
+            this.labelForFirstLine.Text = "Первая строка";
             // 
-            // label2
+            // labelForSecondLine
             // 
-            this.label2.Location = new System.Drawing.Point(230, 101);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Вторая строка";
+            this.labelForSecondLine.Location = new System.Drawing.Point(307, 124);
+            this.labelForSecondLine.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelForSecondLine.Name = "labelForSecondLine";
+            this.labelForSecondLine.Size = new System.Drawing.Size(129, 25);
+            this.labelForSecondLine.TabIndex = 4;
+            this.labelForSecondLine.Text = "Вторая строка";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(333, 152);
+            this.button1.Location = new System.Drawing.Point(444, 187);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(296, 32);
+            this.button1.Size = new System.Drawing.Size(395, 39);
             this.button1.TabIndex = 5;
             this.button1.Text = "Расстояния Левенштейна";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label3
+            // labelForDistance
             // 
-            this.label3.Location = new System.Drawing.Point(334, 216);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(294, 233);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Пусто";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelForDistance.AutoSize = true;
+            this.labelForDistance.Location = new System.Drawing.Point(59, 21);
+            this.labelForDistance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelForDistance.Name = "labelForDistance";
+            this.labelForDistance.Size = new System.Drawing.Size(47, 17);
+            this.labelForDistance.TabIndex = 6;
+            this.labelForDistance.Text = "Пусто";
+            this.labelForDistance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.labelForDistance);
+            this.panel1.Location = new System.Drawing.Point(444, 252);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(395, 263);
+            this.panel1.TabIndex = 7;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelForSecondLine);
+            this.Controls.Add(this.labelForFirstLine);
             this.Controls.Add(this.secondLine);
             this.Controls.Add(this.firstLine);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Levenshtein";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel1;
+
+        private System.Windows.Forms.Label labelForDistance;
 
         private System.Windows.Forms.Button button1;
 
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelForSecondLine;
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelForFirstLine;
 
         private System.Windows.Forms.TextBox firstLine;
         private System.Windows.Forms.TextBox secondLine;
