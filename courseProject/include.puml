@@ -1,0 +1,9 @@
+@startuml
+!include .\\.\courseProject\Levenshtein.puml
+!include .\\.\courseProject\Levenshtein.Designer.puml
+!include .\\.\courseProject\Program.puml
+!include .\\.\courseProject\Properties\AssemblyInfo.puml
+!include .\\.\courseProject\Properties\Resources.Designer.puml
+!include .\\.\courseProject\Properties\Settings.Designer.puml
+!include .\\.\courseProject\obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.puml
+@enduml

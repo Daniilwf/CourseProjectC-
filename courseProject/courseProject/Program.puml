@@ -1,0 +1,5 @@
+@startuml
+class PlaceProgram <<static>> {
+    {static} Main() : void
+}
+@enduml
